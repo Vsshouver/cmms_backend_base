@@ -4,30 +4,17 @@ from datetime import datetime
 
 class AnaliseOleoBase(BaseModel):
     equipamento_id: int
-    data_coleta: Optional[datetime] = None
-    horimetro: Optional[float] = None
-    resultado: Optional[str] = None
-    acoes_recomendadas: Optional[str] = None
-    observacoes: Optional[str] = None
+    resultado: str
+    viscosidade: Optional[float] = None
+    contaminacao: Optional[str] = None
+    tratativa: Optional[str] = None
 
 class AnaliseOleoCreate(AnaliseOleoBase):
     pass
 
-class AnaliseOleoUpdate(BaseModel):
-    horimetro: Optional[float]
-    resultado: Optional[str]
-    acoes_recomendadas: Optional[str]
-    observacoes: Optional[str]
-
-class AnaliseOleo(BaseModel):
+class AnaliseOleoRead(AnaliseOleoBase):
     id: int
-    equipamento_id: int
-    data_coleta: datetime
-    horimetro: Optional[float]
-    resultado: Optional[str]
-    acoes_recomendadas: Optional[str]
-    observacoes: Optional[str]
-    criado_em: datetime
+    data_analise: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
