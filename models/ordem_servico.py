@@ -25,3 +25,4 @@ class OrdemServico(Base):
 
     equipamento = relationship("Equipamento", backref="ordens_servico")
     mecanicos = relationship("User", secondary=os_mecanicos, backref="os_mecanico")
+    
