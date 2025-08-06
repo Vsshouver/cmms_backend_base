@@ -28,20 +28,3 @@ class OrdemServico(OrdemServicoBase):
 
     class Config:
         orm_mode = True
-
-# -----------------------------
-# Schemas dos Itens na OS
-# -----------------------------
-class ItemOrdemServicoBase(BaseModel):
-    item_id: int
-    quantidade: int
-
-class ItemOrdemServicoCreate(ItemOrdemServicoBase):
-    pass
-
-class ItemOrdemServico(ItemOrdemServicoBase):
-    id: int
-    ordem_servico_id: int
-
-    class Config:
-        from_attributes = True
